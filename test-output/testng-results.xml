@@ -2,29 +2,29 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-07-05T19:12:36 GMT+05:30" name="PollDSLAM Tests" finished-at="2021-07-05T19:12:45 GMT+05:30" duration-ms="9785">
+  <suite started-at="2021-07-05T20:06:01 GMT+05:30" name="PollDSLAM Tests" finished-at="2021-07-05T20:06:10 GMT+05:30" duration-ms="9494">
     <groups>
     </groups>
-    <test started-at="2021-07-05T19:12:36 GMT+05:30" name="Test" finished-at="2021-07-05T19:12:45 GMT+05:30" duration-ms="9785">
+    <test started-at="2021-07-05T20:06:01 GMT+05:30" name="Test" finished-at="2021-07-05T20:06:10 GMT+05:30" duration-ms="9494">
       <class name="restAssuredTests.LoginWithValidTN">
-        <test-method is-config="true" signature="setup()[pri:0, instance:restAssuredTests.LoginWithValidTN@15aab8c6]" started-at="2021-07-05T19:12:36 GMT+05:30" name="setup" finished-at="2021-07-05T19:12:37 GMT+05:30" duration-ms="1287" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:restAssuredTests.LoginWithValidTN@33990a0c]" started-at="2021-07-05T20:06:01 GMT+05:30" name="setup" finished-at="2021-07-05T20:06:02 GMT+05:30" duration-ms="1147" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyLoginWithTN()[pri:0, instance:restAssuredTests.LoginWithValidTN@15aab8c6]" started-at="2021-07-05T19:12:37 GMT+05:30" name="verifyLoginWithTN" finished-at="2021-07-05T19:12:41 GMT+05:30" duration-ms="4503" status="PASS">
+        <test-method signature="verifyLoginWithTN()[pri:0, instance:restAssuredTests.LoginWithValidTN@33990a0c]" started-at="2021-07-05T20:06:02 GMT+05:30" name="verifyLoginWithTN" finished-at="2021-07-05T20:06:06 GMT+05:30" duration-ms="4102" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLoginWithTN -->
       </class> <!-- restAssuredTests.LoginWithValidTN -->
       <class name="restAssuredTests.InitialPageOfPollDslam">
-        <test-method is-config="true" signature="setup()[pri:0, instance:restAssuredTests.InitialPageOfPollDslam@10feca44]" started-at="2021-07-05T19:12:41 GMT+05:30" name="setup" finished-at="2021-07-05T19:12:41 GMT+05:30" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:restAssuredTests.InitialPageOfPollDslam@3fb1549b]" started-at="2021-07-05T20:06:06 GMT+05:30" name="setup" finished-at="2021-07-05T20:06:06 GMT+05:30" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="verifyLoginWithTN()[pri:0, instance:restAssuredTests.InitialPageOfPollDslam@10feca44]" started-at="2021-07-05T19:12:41 GMT+05:30" name="verifyLoginWithTN" finished-at="2021-07-05T19:12:45 GMT+05:30" duration-ms="3928" status="PASS">
+        <test-method signature="verifyFrontPage()[pri:0, instance:restAssuredTests.InitialPageOfPollDslam@3fb1549b]" started-at="2021-07-05T20:06:06 GMT+05:30" name="verifyFrontPage" finished-at="2021-07-05T20:06:10 GMT+05:30" duration-ms="4176" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyLoginWithTN -->
+        </test-method> <!-- verifyFrontPage -->
       </class> <!-- restAssuredTests.InitialPageOfPollDslam -->
     </test> <!-- Test -->
   </suite> <!-- PollDSLAM Tests -->

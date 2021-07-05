@@ -2,7 +2,6 @@ package utils;
 
 import static io.restassured.RestAssured.given;
 
-import javax.xml.xpath.XPath;
 
 import TestData.Constants;
 import io.restassured.response.Response;

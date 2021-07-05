@@ -1,9 +1,5 @@
 package restAssuredTests;
 
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.hasXPath;
-import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
 
 import org.testng.annotations.BeforeClass;
@@ -23,7 +19,7 @@ public class InitialPageOfPollDslam {
 	}
 	
 	@Test
-	public void verifyLoginWithTN()
+	public void verifyFrontPage()
 	{
 		String apiURL= "https://napperlc3.corp.intranet/cgi-bin/POLLDSLAM/dslam6100Int.pl?telephoneNum="
 					+Constants.TeleNum+"&XML=1&ADDLXML=1";
@@ -62,12 +58,32 @@ public class InitialPageOfPollDslam {
 		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.TN_LIST_LINK")!=null);
 		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.CDBI_REPORTING_LINK")!=null);
 		
+		//DSLAM PORT Information and Utilities Validation
 		
+		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.POTS_SHELF")!=null);
+		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.LINE_CODE")!=null);
+		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.ACTUALS_LINK")!=null);
+		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.AUTHENTICATION_CHECK_LINK")!=null);
+		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.DSL_EXPRESSE_LINK")!=null);
+		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.LOOP_QUAL_LINK")!=null);
+		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.BOUNCE_PORT_A_LINK")!=null);
+		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.BOUNCE_PORT_B_LINK")!=null);
+		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.BOUNCE_PORT_AB_LINK")!=null);
 		
-	
+		//CUSTOMER ORDER INFORMATION validation
+		//Ordered speed not avilable
 		
+		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.CUSTOMER_INFORMATION.ORDER_NO")!=null);
+		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.SUPP_LEVEL")!=null);
+		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.ISSUED_DATE")!=null);
+		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.DUE_DATE")!=null);
+		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.CIRCUIT_ID")!=null);
+		
+		//ORDER AND ETHERNET PATH STATUS validation
+		
+		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.SERVICE_ID")!=null);
+		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.SUBSCRIBER_STATUS")!=null);
 			
-		
 		
 		 
 	}
