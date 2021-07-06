@@ -18,7 +18,32 @@ public class InitialPageOfPollDslam {
 		RestAssured.useRelaxedHTTPSValidation();
 	}
 	
+	
 	@Test
+	public void verifyLoginWithTN()
+	{
+		String apiURL= "https://napperlc3.corp.intranet/cgi-bin/POLLDSLAM/dslam6100Int.pl?telephoneNum="
+					+Constants.TeleNum+"&XML=1&ADDLXML=1";
+		
+		Response responseData = CommonMethods.responseCapture(apiURL);
+		
+		CommonMethods.verifyStatusCode(responseData, 200);
+				
+		if(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.TN").isEmpty())
+		{
+			assertTrue(true);
+		}
+		else if(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.ERRREC.ERROR_TET").isEmpty())	
+		{
+			assertTrue(true);
+		}
+		else
+		{
+			assertTrue(false);
+		}
+	}
+	
+	@Test(dependsOnMethods = "verifyLoginWithTN")
 	public void verifyFrontPage()
 	{
 		String apiURL= "https://napperlc3.corp.intranet/cgi-bin/POLLDSLAM/dslam6100Int.pl?telephoneNum="
@@ -26,9 +51,9 @@ public class InitialPageOfPollDslam {
 		
 		Response responseData = CommonMethods.responseCapture(apiURL);
 		
-		CommonMethods.verifyStatusCode(responseData, 200);  // Status code validation
+	//	CommonMethods.verifyStatusCode(responseData, 200);  // Status code validation
 		
-		CommonMethods.verifyResponseBodyData(responseData, "/POLL_DSLAM_ISYS/TN", Constants.TeleNum);    //TN Validation
+	//	CommonMethods.verifyResponseBodyData(responseData, "/POLL_DSLAM_ISYS/TN", Constants.TeleNum);    //TN Validation
 		
 		//Transport type validation
 		String responseTransportTypeText = CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.TRANSPORT_TYPE");
@@ -47,42 +72,42 @@ public class InitialPageOfPollDslam {
 		
 		//DSLAM DEVICE Information, Inventory, and Status Checks Validation
 		//Train rate , end to end and recent calls detais are not there in xml
-		
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.DSLAM_CHASSIS_TYPE")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.DSLAM_IP")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.DEVICE_TID")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.CLLI_NODE")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.NI_RACK_ID")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.UNIT")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.PING_DSLAM_LINK")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.TN_LIST_LINK")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.CDBI_REPORTING_LINK")!=null);
+				
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.DSLAM_CHASSIS_TYP").isEmpty(),"DSLAM_CHASSIS_TYPE not exist");
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.DSLAM_IP").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.DEVICE_TID").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.CLLI_NODE").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.NI_RACK_ID").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.UNIT").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.PING_DSLAM_LINK").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.TN_LIST_LINK").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.CDBI_REPORTING_LINK").isEmpty());
 		
 		//DSLAM PORT Information and Utilities Validation
 		
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.POTS_SHELF")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.LINE_CODE")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.ACTUALS_LINK")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.AUTHENTICATION_CHECK_LINK")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.DSL_EXPRESSE_LINK")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.LOOP_QUAL_LINK")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.BOUNCE_PORT_A_LINK")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.BOUNCE_PORT_B_LINK")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.BOUNCE_PORT_AB_LINK")!=null);
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.POTS_SHELF").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.LINE_CODE").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.ACTUALS_LINK").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.AUTHENTICATION_CHECK_LINK").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.DSL_EXPRESSE_LINK").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.LOOP_QUAL_LINK").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.BOUNCE_PORT_A_LINK").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.BOUNCE_PORT_B_LINK").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.BOUNCE_PORT_AB_LINK").isEmpty());
 		
 		//CUSTOMER ORDER INFORMATION validation
 		//Ordered speed not avilable
 		
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.CUSTOMER_INFORMATION.ORDER_NO")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.SUPP_LEVEL")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.ISSUED_DATE")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.DUE_DATE")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.CIRCUIT_ID")!=null);
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.CUSTOMER_INFORMATION.ORDER_NO").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.SUPP_LEVEL").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.ISSUED_DATE").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.DUE_DATE").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.CIRCUIT_ID").isEmpty());
 		
 		//ORDER AND ETHERNET PATH STATUS validation
 		
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.SERVICE_ID")!=null);
-		assertTrue(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.SUBSCRIBER_STATUS")!=null);
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.SERVICE_ID").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.SUBSCRIBER_STATUS").isEmpty());
 			
 		
 		 

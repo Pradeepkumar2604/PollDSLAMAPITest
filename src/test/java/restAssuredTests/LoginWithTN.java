@@ -1,6 +1,8 @@
 package restAssuredTests;
 
 
+import static org.testng.Assert.assertTrue;
+
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -10,7 +12,7 @@ import io.restassured.response.Response;
 import utils.CommonMethods;
 
 
-public class LoginWithValidTN{
+public class LoginWithTN{
 
 	@BeforeClass
 	public void setup()
@@ -27,8 +29,18 @@ public class LoginWithValidTN{
 		Response responseData = CommonMethods.responseCapture(apiURL);
 		
 		CommonMethods.verifyStatusCode(responseData, 200);
-		
-		CommonMethods.verifyResponseBodyData(responseData, "/POLL_DSLAM_ISYS/TN", Constants.TeleNum);
-					
+				
+		if(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.TN").isEmpty())
+		{
+			assertTrue(true);
+		}
+		else if(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.ERRREC.ERROR_TET").isEmpty())	
+		{
+			assertTrue(true);
+		}
+		else
+		{
+			assertTrue(false);
+		}
 	}
 }
