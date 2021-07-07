@@ -3,12 +3,16 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="restAssuredTests.Test_TNCompositionList">
+      <class name="restAssuredTests.Test_LoginHomePage">
         <methods>
-          <include name="setup"/>
-          <include name="verifyTNCompositionList"/>
+          <include name="verifyLoginWithTN"/>
         </methods>
-      </class> <!-- restAssuredTests.Test_TNCompositionList -->
+      </class> <!-- restAssuredTests.Test_LoginHomePage -->
+      <class name="restAssuredTests.Test_Actuals">
+        <methods>
+          <include name="verifyActualsDetails"/>
+        </methods>
+      </class> <!-- restAssuredTests.Test_Actuals -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

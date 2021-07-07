@@ -5,25 +5,17 @@ import static org.testng.Assert.assertTrue;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import TestData.Constants;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import utils.CommonMethods;
 
 public class Test_TNCompositionList {
-	
-	@BeforeClass
-	public void setup()
-	{
-		RestAssured.useRelaxedHTTPSValidation();
-	}
 
-	@Test
+	@Test(dependsOnGroups = "Homepage")
 	public void verifyTNCompositionList()
-	{
-		String IPAddress ="10.228.159.146";
-		//String IPAddress = Test_LoginWithTN.verifyLoginWithTN();
-		
-		String apiURL = "https://napperlc2.corp.intranet/cgi-bin/QC/DSL/dslamTNsAuth.pl?NEIp="+IPAddress+"&XML=1&ADDLXML=1";
+	{		
+		String apiURL = "https://napperlc2.corp.intranet/cgi-bin/QC/DSL/dslamTNsAuth.pl?NEIp="+Constants.IPAddress+"&XML=1&ADDLXML=1";
 		Response responseData = CommonMethods.responseCapture(apiURL);
 		
 		int totalTNsCount = CommonMethods.fetchxmlIntData(responseData, "DSLAM_TN_REPORT.TOTAL_TNS");

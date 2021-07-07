@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test name="Test">
+  <test thread-count="5" name="Test">
     <classes>
-      <class name="restAssuredTests.Test_LoginWithTN"/>
+      <class name="restAssuredTests.Test_LoginHomePage"/>
       <class name="restAssuredTests.Test_TNCompositionList"/>
       <class name="restAssuredTests.Test_InitialPageOfPollDslam"/>
-  
+      <class name="restAssuredTests.Test_Actuals"/>
+      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

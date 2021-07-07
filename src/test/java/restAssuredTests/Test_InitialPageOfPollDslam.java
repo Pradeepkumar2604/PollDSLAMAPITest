@@ -2,23 +2,15 @@ package restAssuredTests;
 
 import static org.testng.Assert.assertTrue;
 
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import TestData.Constants;
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import utils.CommonMethods;
 
 public class Test_InitialPageOfPollDslam {
 
-	@BeforeClass
-	public void setup()
-	{
-		RestAssured.useRelaxedHTTPSValidation();
-	}
-	
-	@Test
+	@Test(dependsOnGroups="Homepage")
 	public void verifyFrontPage()
 	{
 		String apiURL= "https://napperlc3.corp.intranet/cgi-bin/POLLDSLAM/dslam6100Int.pl?telephoneNum="
@@ -47,6 +39,9 @@ public class Test_InitialPageOfPollDslam {
 		
 		//DSLAM DEVICE Information, Inventory, and Status Checks Validation
 		//Train rate , end to end and recent calls detais are not there in xml
+		
+		Constants.IPAddress = CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_DEVICE_INVENTORY.DSLAM_IP_ADDRESS");
+		//System.out.println(Constants.IPAddress);
 				
 		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.DSLAM_CHASSIS_TYPE").isEmpty(),"DSLAM_CHASSIS_TYPE not exist");
 		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.DSLAM_IP").isEmpty());
@@ -58,8 +53,8 @@ public class Test_InitialPageOfPollDslam {
 		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.TN_LIST_LINK").isEmpty());
 		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.CDBI_REPORTING_LINK").isEmpty());
 		
-		//DSLAM PORT Information and Utilities Validation
-		
+		//DSLAM PORT Information and Utilities Validation		
+				
 		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.POTS_SHELF").isEmpty());
 		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.LINE_CODE").isEmpty());
 		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.ACTUALS_LINK").isEmpty());

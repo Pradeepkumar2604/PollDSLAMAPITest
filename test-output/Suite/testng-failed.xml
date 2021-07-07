@@ -6,6 +6,7 @@
       <class name="restAssuredTests.Test_InitialPageOfPollDslam">
         <methods>
           <include name="verifyFrontPage"/>
+          <include name="verifyLoginWithTN"/>
         </methods>
       </class> <!-- restAssuredTests.Test_InitialPageOfPollDslam -->
     </classes>

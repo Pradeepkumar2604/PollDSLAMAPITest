@@ -1,6 +1,5 @@
 package restAssuredTests;
 
-
 import static org.testng.Assert.assertTrue;
 
 import org.testng.annotations.Test;
@@ -9,17 +8,10 @@ import TestData.Constants;
 import io.restassured.response.Response;
 import utils.CommonMethods;
 
-
-public class Test_LoginWithTN{
-
-//	@BeforeClass
-//	public void setup()
-//	{
-//		RestAssured.useRelaxedHTTPSValidation();
-//	}
+public class Test_LoginHomePage {
 	
-	@Test
-	public static String verifyLoginWithTN()
+	@Test(groups="Homepage")
+	public static void verifyLoginWithTN()
 	{
 		String apiURL= "https://napperlc3.corp.intranet/cgi-bin/POLLDSLAM/dslam6100Int.pl?telephoneNum="
 					+Constants.TeleNum+"&XML=1&ADDLXML=1";
@@ -41,8 +33,12 @@ public class Test_LoginWithTN{
 			assertTrue(false);
 		}
 		
-		return (CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_DEVICE_INVENTORY.DSLAM_IP_ADDRESS"));
+		Constants.IPAddress=CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_DEVICE_INVENTORY.DSLAM_IP_ADDRESS");
+		Constants.ActualsURL = CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.NI1LIM.DSLAM_ACTUALS_URI");
+		Constants.TransportType = CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.TRANSPORT_TYPE");
+		System.out.println("Homepage "+Constants.TransportType);
 		
 	}
 	
+
 }

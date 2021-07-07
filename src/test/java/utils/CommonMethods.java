@@ -4,6 +4,7 @@ import static io.restassured.RestAssured.given;
 
 
 import TestData.Constants;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import static org.hamcrest.Matchers.*;
 
@@ -12,7 +13,7 @@ public class CommonMethods {
 	//Fecthing response method
 	public static Response responseCapture(String apiURL)
 	{	
-		
+		RestAssured.useRelaxedHTTPSValidation();
 	Response response = given()
 	.auth()
 	.basic(Constants.UserName, PwdEncryption.Decodepwd(Constants.Password))
@@ -47,7 +48,10 @@ public class CommonMethods {
 		
 	}
 	
-	
+	public static boolean stringContentValidation(Response response,String nodePath) {
+		
+		return (response.xmlPath().get(nodePath).toString().isEmpty());
+	}
 	
 	
 
