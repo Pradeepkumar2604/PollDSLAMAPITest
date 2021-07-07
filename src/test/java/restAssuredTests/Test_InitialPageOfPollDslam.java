@@ -10,7 +10,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import utils.CommonMethods;
 
-public class InitialPageOfPollDslam {
+public class Test_InitialPageOfPollDslam {
 
 	@BeforeClass
 	public void setup()
@@ -18,32 +18,7 @@ public class InitialPageOfPollDslam {
 		RestAssured.useRelaxedHTTPSValidation();
 	}
 	
-	
 	@Test
-	public void verifyLoginWithTN()
-	{
-		String apiURL= "https://napperlc3.corp.intranet/cgi-bin/POLLDSLAM/dslam6100Int.pl?telephoneNum="
-					+Constants.TeleNum+"&XML=1&ADDLXML=1";
-		
-		Response responseData = CommonMethods.responseCapture(apiURL);
-		
-		CommonMethods.verifyStatusCode(responseData, 200);
-				
-		if(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.TN").isEmpty())
-		{
-			assertTrue(true);
-		}
-		else if(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.ERRREC.ERROR_TET").isEmpty())	
-		{
-			assertTrue(true);
-		}
-		else
-		{
-			assertTrue(false);
-		}
-	}
-	
-	@Test(dependsOnMethods = "verifyLoginWithTN")
 	public void verifyFrontPage()
 	{
 		String apiURL= "https://napperlc3.corp.intranet/cgi-bin/POLLDSLAM/dslam6100Int.pl?telephoneNum="
@@ -73,12 +48,12 @@ public class InitialPageOfPollDslam {
 		//DSLAM DEVICE Information, Inventory, and Status Checks Validation
 		//Train rate , end to end and recent calls detais are not there in xml
 				
-		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.DSLAM_CHASSIS_TYP").isEmpty(),"DSLAM_CHASSIS_TYPE not exist");
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.DSLAM_CHASSIS_TYPE").isEmpty(),"DSLAM_CHASSIS_TYPE not exist");
 		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.DSLAM_IP").isEmpty());
 		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.DEVICE_TID").isEmpty());
 		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.CLLI_NODE").isEmpty());
 		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.NI_RACK_ID").isEmpty());
-		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_CONFIG.UNIT").isEmpty());
+		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_DEVICE_INVENTORY.UNIT").isEmpty());
 		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.PING_DSLAM_LINK").isEmpty());
 		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.TN_LIST_LINK").isEmpty());
 		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.CDBI_REPORTING_LINK").isEmpty());

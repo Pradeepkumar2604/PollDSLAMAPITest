@@ -3,13 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="restAssuredTests.InitialPageOfPollDslam">
+      <class name="restAssuredTests.Test_TNCompositionList">
         <methods>
-          <include name="verifyFrontPage"/>
-          <include name="verifyLoginWithTN"/>
           <include name="setup"/>
+          <include name="verifyTNCompositionList"/>
         </methods>
-      </class> <!-- restAssuredTests.InitialPageOfPollDslam -->
+      </class> <!-- restAssuredTests.Test_TNCompositionList -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

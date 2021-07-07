@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="PollDSLAM Tests">
+<suite name="Suite">
   <test name="Test">
     <classes>
-      <class name="restAssuredTests.LoginWithTN"/>
-      <class name="restAssuredTests.InitialPageOfPollDslam"/>
+      <class name="restAssuredTests.Test_LoginWithTN"/>
+      <class name="restAssuredTests.Test_TNCompositionList"/>
+      <class name="restAssuredTests.Test_InitialPageOfPollDslam"/>
+  
     </classes>
-  </test> 
-</suite>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
