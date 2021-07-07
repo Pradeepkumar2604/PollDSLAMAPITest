@@ -36,7 +36,6 @@ public class Test_LoginHomePage {
 		Constants.IPAddress=CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_DEVICE_INVENTORY.DSLAM_IP_ADDRESS");
 		Constants.ActualsURL = CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.NI1LIM.DSLAM_ACTUALS_URI");
 		Constants.TransportType = CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.TRANSPORT_TYPE");
-		System.out.println("Homepage "+Constants.TransportType);
 		
 	}
 	

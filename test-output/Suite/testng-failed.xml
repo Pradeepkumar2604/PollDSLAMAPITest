@@ -3,12 +3,21 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
+      <class name="restAssuredTests.Test_LoginHomePage">
+        <methods>
+          <include name="verifyLoginWithTN"/>
+        </methods>
+      </class> <!-- restAssuredTests.Test_LoginHomePage -->
       <class name="restAssuredTests.Test_InitialPageOfPollDslam">
         <methods>
           <include name="verifyFrontPage"/>
-          <include name="verifyLoginWithTN"/>
         </methods>
       </class> <!-- restAssuredTests.Test_InitialPageOfPollDslam -->
+      <class name="restAssuredTests.Test_Actuals">
+        <methods>
+          <include name="verifyActualsDetails"/>
+        </methods>
+      </class> <!-- restAssuredTests.Test_Actuals -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
