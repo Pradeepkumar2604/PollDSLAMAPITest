@@ -13,7 +13,7 @@ public class Test_LoginHomePage {
 	@Test(groups="Homepage")
 	public static void verifyLoginWithTN()
 	{
-		String apiURL= "https://napperlc3.corp.intranet/cgi-bin/POLLDSLAM/dslam6100Int.pl?telephoneNum="
+		String apiURL= Constants.TEST_ENV+"/cgi-bin/POLLDSLAM/dslam6100Int.pl?telephoneNum="
 					+Constants.TeleNum+"&XML=1&ADDLXML=1";
 		
 		Response responseData = CommonMethods.responseCapture(apiURL);

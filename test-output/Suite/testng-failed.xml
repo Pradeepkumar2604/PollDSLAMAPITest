@@ -3,21 +3,41 @@
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Test(failed)">
     <classes>
+      <class name="restAssuredTests.Test_TNCompositionList">
+        <methods>
+          <include name="verifyTNCompositionList"/>
+        </methods>
+      </class> <!-- restAssuredTests.Test_TNCompositionList -->
+      <class name="restAssuredTests.Test_CustomerOrderInfo">
+        <methods>
+          <include name="verifyFrontPage"/>
+        </methods>
+      </class> <!-- restAssuredTests.Test_CustomerOrderInfo -->
+      <class name="restAssuredTests.Test_OrderEthernetPathStatus">
+        <methods>
+          <include name="verifyFrontPage"/>
+        </methods>
+      </class> <!-- restAssuredTests.Test_OrderEthernetPathStatus -->
       <class name="restAssuredTests.Test_LoginHomePage">
         <methods>
           <include name="verifyLoginWithTN"/>
         </methods>
       </class> <!-- restAssuredTests.Test_LoginHomePage -->
-      <class name="restAssuredTests.Test_InitialPageOfPollDslam">
-        <methods>
-          <include name="verifyFrontPage"/>
-        </methods>
-      </class> <!-- restAssuredTests.Test_InitialPageOfPollDslam -->
       <class name="restAssuredTests.Test_Actuals">
         <methods>
           <include name="verifyActualsDetails"/>
         </methods>
       </class> <!-- restAssuredTests.Test_Actuals -->
+      <class name="restAssuredTests.Test_PingDSlam">
+        <methods>
+          <include name="verifyPingDSLAM"/>
+        </methods>
+      </class> <!-- restAssuredTests.Test_PingDSlam -->
+      <class name="restAssuredTests.Test_InitialPageOfPollDslam">
+        <methods>
+          <include name="verifyFrontPage"/>
+        </methods>
+      </class> <!-- restAssuredTests.Test_InitialPageOfPollDslam -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

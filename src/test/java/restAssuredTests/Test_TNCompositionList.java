@@ -15,7 +15,7 @@ public class Test_TNCompositionList {
 	@Test(dependsOnGroups = "Homepage")
 	public void verifyTNCompositionList()
 	{		
-		String apiURL = "https://napperlc2.corp.intranet/cgi-bin/QC/DSL/dslamTNsAuth.pl?NEIp="+Constants.IPAddress+"&XML=1&ADDLXML=1";
+		String apiURL = Constants.TEST_ENV+"/cgi-bin/QC/DSL/dslamTNsAuth.pl?NEIp="+Constants.IPAddress+"&XML=1&ADDLXML=1";
 		Response responseData = CommonMethods.responseCapture(apiURL);
 		
 		int totalTNsCount = CommonMethods.fetchxmlIntData(responseData, "DSLAM_TN_REPORT.TOTAL_TNS");

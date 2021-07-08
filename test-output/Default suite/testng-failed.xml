@@ -8,11 +8,11 @@
           <include name="verifyLoginWithTN"/>
         </methods>
       </class> <!-- restAssuredTests.Test_LoginHomePage -->
-      <class name="restAssuredTests.Test_Actuals">
+      <class name="restAssuredTests.Test_OrderEthernetPathStatus">
         <methods>
-          <include name="verifyActualsDetails"/>
+          <include name="verifyFrontPage"/>
         </methods>
-      </class> <!-- restAssuredTests.Test_Actuals -->
+      </class> <!-- restAssuredTests.Test_OrderEthernetPathStatus -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

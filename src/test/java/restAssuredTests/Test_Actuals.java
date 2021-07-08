@@ -12,7 +12,7 @@ public class Test_Actuals {
 	@Test(dependsOnGroups = "Homepage")
 	public void verifyActualsDetails()
 	{
-		String apiURL = "https://napperlc3.corp.intranet/cgi-bin/POLLDSLAM/"+Constants.ActualsURL+"&XML=1&ADDLXML=1";
+		String apiURL = Constants.TEST_ENV+"/cgi-bin/POLLDSLAM/"+Constants.ActualsURL+"&XML=1&ADDLXML=1";
 		
 		Response responseData = CommonMethods.responseCapture(apiURL);
 		
@@ -31,22 +31,20 @@ public class Test_Actuals {
 //		assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS.ADTRAN_CARD_INFO.ADTRAN_CARD_REV"));
 		assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS.ADTRAN_CARD_INFO.ADTRAN_CARD_UP_TIME"));
 		
-		//Verifying PHYSICAL PORT 
-		assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS.BONDING_GROUP_ASSIGNMENT.BONDING_STATUS"));
-		assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS.BONDING_GROUP_ASSIGNMENT.BONDING_GROUP_ID"));
-		assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS.BONDING_GROUP_ASSIGNMENT.NUM_PROVISIONED_LINKS"));
-		assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS.BONDING_GROUP_ASSIGNMENT.NUM_ACTIVE_LINKS"));
-		assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS.BONDING_GROUP_ASSIGNMENT.NUM_OPERATIONAL_LINKS"));
-		
 		//Verifying SIGNAL QUALITY STATISTICS
         String[] listPort = {"PORT_STATUS","PORT_STATUS_2"};
-        String[] listUpstream = {"ADTRAN_UP_STREAM","ADTRAN_UP_STREAM_2"};
-        String[] listDownstream = {"ADTRAN_DOWN_STREAM","ADTRAN_DOWN_STREAM_2"};
-        
+        String[] liststream = {"ADTRAN_UP_STREAM","ADTRAN_UP_STREAM_2","ADTRAN_DOWN_STREAM","ADTRAN_DOWN_STREAM_2"};
+     
 		if(Constants.TransportType.contains("Pair Bonded"))
 		{
-//			String PORT1= "PORT_STATUS";
-//			String PORT2 = "PORT_STATUS_2";
+			System.out.println("pair bonded");
+			//Verifying PHYSICAL PORT 
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS.BONDING_GROUP_ASSIGNMENT.BONDING_STATUS"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS.BONDING_GROUP_ASSIGNMENT.BONDING_GROUP_ID"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS.BONDING_GROUP_ASSIGNMENT.NUM_PROVISIONED_LINKS"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS.BONDING_GROUP_ASSIGNMENT.NUM_ACTIVE_LINKS"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS.BONDING_GROUP_ASSIGNMENT.NUM_OPERATIONAL_LINKS"));
+			
 			for(int i=0;i<listPort.length;i++) {
 			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listPort[i]+".PORT_ADMIN_STATUS"));
 			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listPort[i]+".PORT_OPER_STATUS"));
@@ -54,27 +52,38 @@ public class Test_Actuals {
 			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listPort[i]+".ASSIGNED_PROFILE"));
 			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listPort[i]+".PORT_MODE"));}
 			
-			for(int j=0;j<listUpstream.length;j++) {
-			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listUpstream[j]+".@OUTPUT_POWER"));
-			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listUpstream[j]+".@NOISE_MARGIN"));
-			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listUpstream[j]+".@ATTENUATION"));
-			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listUpstream[j]+".@DELAY"));
-			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listUpstream[j]+".@DATA_RATE"));
-			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listUpstream[j]+".@PROV_DATA_RATE"));
-			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listUpstream[j]+".@PERCENT_TRAIN_RATE"));
-			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listUpstream[j]+".@MAX_ATTAINABLE_DATA_RATE"));}
-			
-			for(int k=0;k<listDownstream.length;k++) {
-			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listDownstream[k]+".@OUTPUT_POWER"));
-			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listDownstream[k]+".@NOISE_MARGIN"));
-			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listDownstream[k]+".@ATTENUATION"));
-			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listDownstream[k]+".@DELAY"));
-			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listDownstream[k]+".@DATA_RATE"));
-			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listDownstream[k]+".@PROV_DATA_RATE"));
-			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listDownstream[k]+".@PERCENT_TRAIN_RATE"));
-			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+listDownstream[k]+".@MAX_ATTAINABLE_DATA_RATE"));}
-			
+			for(int j=0;j<liststream.length;j++) {
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+liststream[j]+".@OUTPUT_POWER"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+liststream[j]+".@NOISE_MARGIN"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+liststream[j]+".@ATTENUATION"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+liststream[j]+".@DELAY"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+liststream[j]+".@DATA_RATE"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+liststream[j]+".@PROV_DATA_RATE"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+liststream[j]+".@PERCENT_TRAIN_RATE"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+liststream[j]+".@MAX_ATTAINABLE_DATA_RATE"));}
+	
 			}
+		else
+		{
+			System.out.println("non pair bonded");
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS.PORT_STATUS.PORT_ADMIN_STATUS"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS.PORT_STATUS.PORT_OPER_STATUS"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS.PORT_STATUS.ASSIGNED_PROFILE"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS.PORT_STATUS.LINE_LATENCY"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS.PORT_STATUS.PORT_MODE"));
+			
+			String[] stream= {"ADTRAN_UP_STREAM","ADTRAN_DOWN_STREAM "};
+			for(int k=0;k<stream.length;k++){
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+stream[k]+".@OUTPUT_POWER"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+stream[k]+".@NOISE_MARGIN"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+stream[k]+".@ATTENUATION"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+stream[k]+".@DELAY"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+stream[k]+".@DATA_RATE"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+stream[k]+".@PROV_DATA_RATE"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+stream[k]+".@PERCENT_TRAIN_RATE"));
+			assertTrue(!CommonMethods.stringContentValidation(responseData, "ADTRAN_ACTUALS."+stream[k]+".@MAX_ATTAINABLE_DATA_RATE"));
+			}
+		}
 		
 		
 	}

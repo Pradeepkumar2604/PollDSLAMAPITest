@@ -13,7 +13,7 @@ public class Test_PingDSlam {
 	@Test(dependsOnGroups = "Homepage")
 	public void verifyPingDSLAM()
 	{
-		String apiURL="https://napperlc3.corp.intranet/cgi-bin/POLLDSLAM/pingDevice.pl?Ip="+Constants.IPAddress+"&abbrev=1&XML=1&ADDLXML=1";
+		String apiURL=Constants.TEST_ENV+"/cgi-bin/POLLDSLAM/pingDevice.pl?Ip="+Constants.IPAddress+"&abbrev=1&XML=1&ADDLXML=1";
 		Response responseData = CommonMethods.responseCapture(apiURL);
 		if(CommonMethods.fetchxmlStringData(responseData, "PING_DEVICE.RESULT").equals("SUCCESS"))
 		{

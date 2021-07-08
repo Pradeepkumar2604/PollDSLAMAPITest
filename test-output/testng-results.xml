@@ -1,26 +1,266 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="7" passed="0" failed="1" skipped="6">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-07-07T22:26:25 GMT+05:30" name="Default suite" finished-at="2021-07-07T22:26:36 GMT+05:30" duration-ms="11338">
+  <suite started-at="2021-07-08T16:44:37 GMT+05:30" name="Suite" finished-at="2021-07-08T16:44:42 GMT+05:30" duration-ms="5374">
     <groups>
       <group name="Homepage">
-        <method signature="Test_LoginHomePage.verifyLoginWithTN()[pri:0, instance:restAssuredTests.Test_LoginHomePage@120f102b]" name="verifyLoginWithTN" class="restAssuredTests.Test_LoginHomePage"/>
+        <method signature="Test_LoginHomePage.verifyLoginWithTN()[pri:0, instance:restAssuredTests.Test_LoginHomePage@6631f5ca]" name="verifyLoginWithTN" class="restAssuredTests.Test_LoginHomePage"/>
       </group> <!-- Homepage -->
     </groups>
-    <test started-at="2021-07-07T22:26:25 GMT+05:30" name="Default test" finished-at="2021-07-07T22:26:36 GMT+05:30" duration-ms="11338">
+    <test started-at="2021-07-08T16:44:37 GMT+05:30" name="Test" finished-at="2021-07-08T16:44:42 GMT+05:30" duration-ms="5374">
       <class name="restAssuredTests.Test_LoginHomePage">
-        <test-method signature="verifyLoginWithTN()[pri:0, instance:restAssuredTests.Test_LoginHomePage@120f102b]" started-at="2021-07-07T22:26:25 GMT+05:30" name="verifyLoginWithTN" finished-at="2021-07-07T22:26:32 GMT+05:30" duration-ms="6726" status="PASS">
+        <test-method signature="verifyLoginWithTN()[pri:0, instance:restAssuredTests.Test_LoginHomePage@6631f5ca]" started-at="2021-07-08T16:44:37 GMT+05:30" name="verifyLoginWithTN" finished-at="2021-07-08T16:44:42 GMT+05:30" duration-ms="5262" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [true] but found [false]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
+at org.testng.Assert.fail(Assert.java:99)
+at org.testng.Assert.failNotEquals(Assert.java:1037)
+at org.testng.Assert.assertTrue(Assert.java:45)
+at org.testng.Assert.assertTrue(Assert.java:55)
+at restAssuredTests.Test_LoginHomePage.verifyLoginWithTN(Test_LoginHomePage.java:33)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyLoginWithTN -->
       </class> <!-- restAssuredTests.Test_LoginHomePage -->
+      <class name="restAssuredTests.Test_CustomerOrderInfo">
+        <test-method signature="verifyFrontPage()[pri:0, instance:restAssuredTests.Test_CustomerOrderInfo@212b5695]" started-at="2021-07-08T16:44:42 GMT+05:30" name="verifyFrontPage" depends-on-groups="Homepage" finished-at="2021-07-08T16:44:42 GMT+05:30" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Test_CustomerOrderInfo.verifyFrontPage()[pri:0, instance:restAssuredTests.Test_CustomerOrderInfo@212b5695] depends on not successfully finished methods in group "Homepage"]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Test_CustomerOrderInfo.verifyFrontPage()[pri:0, instance:restAssuredTests.Test_CustomerOrderInfo@212b5695] depends on not successfully finished methods in group "Homepage"
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyFrontPage -->
+      </class> <!-- restAssuredTests.Test_CustomerOrderInfo -->
+      <class name="restAssuredTests.Test_Actuals">
+        <test-method signature="verifyActualsDetails()[pri:0, instance:restAssuredTests.Test_Actuals@d29f28]" started-at="2021-07-08T16:44:42 GMT+05:30" name="verifyActualsDetails" depends-on-groups="Homepage" finished-at="2021-07-08T16:44:42 GMT+05:30" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Test_Actuals.verifyActualsDetails()[pri:0, instance:restAssuredTests.Test_Actuals@d29f28] depends on not successfully finished methods in group "Homepage"]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Test_Actuals.verifyActualsDetails()[pri:0, instance:restAssuredTests.Test_Actuals@d29f28] depends on not successfully finished methods in group "Homepage"
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyActualsDetails -->
+      </class> <!-- restAssuredTests.Test_Actuals -->
       <class name="restAssuredTests.Test_InitialPageOfPollDslam">
-        <test-method signature="verifyFrontPage()[pri:0, instance:restAssuredTests.Test_InitialPageOfPollDslam@50ad3bc1]" started-at="2021-07-07T22:26:32 GMT+05:30" name="verifyFrontPage" depends-on-groups="Homepage" finished-at="2021-07-07T22:26:36 GMT+05:30" duration-ms="4553" status="PASS">
+        <test-method signature="verifyFrontPage()[pri:0, instance:restAssuredTests.Test_InitialPageOfPollDslam@3514a4c0]" started-at="2021-07-08T16:44:42 GMT+05:30" name="verifyFrontPage" depends-on-groups="Homepage" finished-at="2021-07-08T16:44:42 GMT+05:30" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Test_InitialPageOfPollDslam.verifyFrontPage()[pri:0, instance:restAssuredTests.Test_InitialPageOfPollDslam@3514a4c0] depends on not successfully finished methods in group "Homepage"]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Test_InitialPageOfPollDslam.verifyFrontPage()[pri:0, instance:restAssuredTests.Test_InitialPageOfPollDslam@3514a4c0] depends on not successfully finished methods in group "Homepage"
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyFrontPage -->
       </class> <!-- restAssuredTests.Test_InitialPageOfPollDslam -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="restAssuredTests.Test_TNCompositionList">
+        <test-method signature="verifyTNCompositionList()[pri:0, instance:restAssuredTests.Test_TNCompositionList@29d89d5d]" started-at="2021-07-08T16:44:42 GMT+05:30" name="verifyTNCompositionList" depends-on-groups="Homepage" finished-at="2021-07-08T16:44:42 GMT+05:30" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Test_TNCompositionList.verifyTNCompositionList()[pri:0, instance:restAssuredTests.Test_TNCompositionList@29d89d5d] depends on not successfully finished methods in group "Homepage"]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Test_TNCompositionList.verifyTNCompositionList()[pri:0, instance:restAssuredTests.Test_TNCompositionList@29d89d5d] depends on not successfully finished methods in group "Homepage"
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTNCompositionList -->
+      </class> <!-- restAssuredTests.Test_TNCompositionList -->
+      <class name="restAssuredTests.Test_OrderEthernetPathStatus">
+        <test-method signature="verifyFrontPage()[pri:0, instance:restAssuredTests.Test_OrderEthernetPathStatus@2fd1433e]" started-at="2021-07-08T16:44:42 GMT+05:30" name="verifyFrontPage" depends-on-groups="Homepage" finished-at="2021-07-08T16:44:42 GMT+05:30" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Test_OrderEthernetPathStatus.verifyFrontPage()[pri:0, instance:restAssuredTests.Test_OrderEthernetPathStatus@2fd1433e] depends on not successfully finished methods in group "Homepage"]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Test_OrderEthernetPathStatus.verifyFrontPage()[pri:0, instance:restAssuredTests.Test_OrderEthernetPathStatus@2fd1433e] depends on not successfully finished methods in group "Homepage"
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyFrontPage -->
+      </class> <!-- restAssuredTests.Test_OrderEthernetPathStatus -->
+      <class name="restAssuredTests.Test_PingDSlam">
+        <test-method signature="verifyPingDSLAM()[pri:0, instance:restAssuredTests.Test_PingDSlam@446293d]" started-at="2021-07-08T16:44:42 GMT+05:30" name="verifyPingDSLAM" depends-on-groups="Homepage" finished-at="2021-07-08T16:44:42 GMT+05:30" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method Test_PingDSlam.verifyPingDSLAM()[pri:0, instance:restAssuredTests.Test_PingDSlam@446293d] depends on not successfully finished methods in group "Homepage"]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method Test_PingDSlam.verifyPingDSLAM()[pri:0, instance:restAssuredTests.Test_PingDSlam@446293d] depends on not successfully finished methods in group "Homepage"
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:102)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyPingDSLAM -->
+      </class> <!-- restAssuredTests.Test_PingDSlam -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
 </testng-results>

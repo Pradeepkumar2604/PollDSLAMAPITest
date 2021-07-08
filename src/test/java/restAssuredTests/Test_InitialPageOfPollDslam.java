@@ -13,7 +13,7 @@ public class Test_InitialPageOfPollDslam {
 	@Test(dependsOnGroups="Homepage")
 	public void verifyFrontPage()
 	{
-		String apiURL= "https://napperlc3.corp.intranet/cgi-bin/POLLDSLAM/dslam6100Int.pl?telephoneNum="
+		String apiURL= Constants.TEST_ENV+"/cgi-bin/POLLDSLAM/dslam6100Int.pl?telephoneNum="
 					+Constants.TeleNum+"&XML=1&ADDLXML=1";
 		
 		Response responseData = CommonMethods.responseCapture(apiURL);
@@ -66,7 +66,7 @@ public class Test_InitialPageOfPollDslam {
 //		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.POLL_DSLAM_FRONT_PAGE_LINKS.BOUNCE_PORT_AB_LINK").isEmpty());
 		
 		//CUSTOMER ORDER INFORMATION validation
-		//Ordered speed not avilable
+		//Ordered speed not available
 		
 		assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.CUSTOMER_INFORMATION.ORDER_NO").isEmpty());
 	//	assertTrue(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.SUPP_LEVEL").isEmpty());
