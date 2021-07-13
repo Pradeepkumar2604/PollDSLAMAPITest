@@ -11,7 +11,7 @@ import utils.CommonMethods;
 public class Test_OrderEthernetPathStatus {
 	
 	@Test(dependsOnGroups="Homepage")
-	public void verifyFrontPage()
+	public void verifyEthernetConf()
 	{
 		String apiURL= Constants.TEST_ENV+"/cgi-bin/POLLDSLAM/dslam6100Int.pl?telephoneNum="
 					+Constants.TeleNum+"&XML=1&ADDLXML=1";
@@ -35,6 +35,7 @@ public class Test_OrderEthernetPathStatus {
 			CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.BOARD_LIST.BOARD["+i+"].CONNECTION_CIRCUIT_ID");
 			
 		}
+		new CommonMethods().getLogger().info("Ethetnet Network Configuration is displayed");
 	}
 
 }

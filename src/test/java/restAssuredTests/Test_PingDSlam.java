@@ -18,6 +18,8 @@ public class Test_PingDSlam {
 		if(CommonMethods.fetchxmlStringData(responseData, "PING_DEVICE.RESULT").equals("SUCCESS"))
 		{
 			assertTrue(CommonMethods.fetchxmlStringData(responseData, "PING_DEVICE.PING_SUCCESS_RATE").equals("100 %"));
+			new CommonMethods().getLogger().info("DSLAM is up and reachable, Device is alive");
 		}
+		
 	}
 }

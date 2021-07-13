@@ -8,6 +8,8 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import static org.hamcrest.Matchers.*;
 
+import com.sun.istack.logging.Logger;
+
 public class CommonMethods {
 	
 	//Fecthing response method
@@ -53,6 +55,9 @@ public class CommonMethods {
 		return (response.xmlPath().get(nodePath).toString().isEmpty());
 	}
 	
-	
+	public Logger getLogger() {
+		 Constants.log = Logger.getLogger(this.getClass());		
+		 return Constants.log;
+	}
 
 }

@@ -40,6 +40,7 @@ public class Test_TNCompositionList {
 			assertTrue(!responseData.xmlPath().get("DSLAM_TN_REPORT.TN_LIST.TN["+i+"].@authTimeSecs").toString().isEmpty());
 			}
 		}
+		new CommonMethods().getLogger().info("TN Composition is displayed");
 
 	}
 }
