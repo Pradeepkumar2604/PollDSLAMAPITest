@@ -1,95 +1,95 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
-    <groupId>PollDSLAM</groupId>
-    <artifactId>PollDSLAM</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
-
-    <name>Spring Boot Blank Project (from https://github.com/making/spring-boot-blank)</name>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
-    <dependencies>
-    <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+<modelVersion>4.0.0</modelVersion>
+<groupId>PollDSLAM</groupId>
+<artifactId>PollDSLAM</artifactId>
+<version>0.0.1-SNAPSHOT</version>
+<packaging>jar</packaging>
+<name>Spring Boot Blank Project (from https://github.com/making/spring-boot-blank)</name>
+<properties>
+<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+</properties>
+<dependencies>
+<!--  https://mvnrepository.com/artifact/io.rest-assured/rest-assured  -->
 <dependency>
-    <groupId>io.rest-assured</groupId>
-    <artifactId>rest-assured</artifactId>
-    <version>4.3.3</version>
-    <scope>test</scope>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-compiler-plugin</artifactId>
+<version>3.3</version>
+<type>maven-plugin</type>
 </dependency>
-    <!-- https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator -->
 <dependency>
-    <groupId>io.rest-assured</groupId>
-    <artifactId>json-schema-validator</artifactId>
-    <version>4.3.3</version>
+<groupId>io.rest-assured</groupId>
+<artifactId>rest-assured</artifactId>
+<version>4.3.3</version>
+<scope>test</scope>
 </dependency>
-    <!-- https://mvnrepository.com/artifact/io.rest-assured/json-path -->
+<!--  https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator  -->
 <dependency>
-    <groupId>io.rest-assured</groupId>
-    <artifactId>json-path</artifactId>
-    <version>4.3.3</version>
+<groupId>io.rest-assured</groupId>
+<artifactId>json-schema-validator</artifactId>
+<version>4.3.3</version>
 </dependency>
-    <!-- https://mvnrepository.com/artifact/io.rest-assured/xml-path -->
+<!--  https://mvnrepository.com/artifact/io.rest-assured/json-path  -->
 <dependency>
-    <groupId>io.rest-assured</groupId>
-    <artifactId>xml-path</artifactId>
-    <version>4.3.3</version>
+<groupId>io.rest-assured</groupId>
+<artifactId>json-path</artifactId>
+<version>4.3.3</version>
 </dependency>
-    <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+<!--  https://mvnrepository.com/artifact/io.rest-assured/xml-path  -->
 <dependency>
-    <groupId>org.testng</groupId>
-    <artifactId>testng</artifactId>
-    <version>7.3.0</version>
-<!--    <scope>test</scope> -->
+<groupId>io.rest-assured</groupId>
+<artifactId>xml-path</artifactId>
+<version>4.3.3</version>
 </dependency>
-    <!-- https://mvnrepository.com/artifact/org.hamcrest/java-hamcrest -->
+<!--  https://mvnrepository.com/artifact/org.testng/testng  -->
 <dependency>
-    <groupId>org.hamcrest</groupId>
-    <artifactId>java-hamcrest</artifactId>
-    <version>2.0.0.0</version>
-    <scope>test</scope>
+<groupId>org.testng</groupId>
+<artifactId>testng</artifactId>
+<version>7.3.0</version>
+<!--     <scope>test</scope>  -->
 </dependency>
-    <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-core -->
+<!--  https://mvnrepository.com/artifact/org.hamcrest/java-hamcrest  -->
 <dependency>
-    <groupId>org.hamcrest</groupId>
-    <artifactId>hamcrest-core</artifactId>
-    <version>2.2</version>
-    <scope>test</scope>
+<groupId>org.hamcrest</groupId>
+<artifactId>java-hamcrest</artifactId>
+<version>2.0.0.0</version>
+<scope>test</scope>
 </dependency>
-    <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-library -->
+<!--  https://mvnrepository.com/artifact/org.hamcrest/hamcrest-core  -->
 <dependency>
-    <groupId>org.hamcrest</groupId>
-    <artifactId>hamcrest-library</artifactId>
-    <version>2.2</version>
-    <scope>test</scope>
-</dependency>   
-<!-- https://mvnrepository.com/artifact/log4j/log4j -->
-<dependency>
-    <groupId>log4j</groupId>
-    <artifactId>log4j</artifactId>
-    <version>1.2.17</version>
+<groupId>org.hamcrest</groupId>
+<artifactId>hamcrest-core</artifactId>
+<version>2.2</version>
+<scope>test</scope>
 </dependency>
-
-    </dependencies>
-   <build>
-   <plugins>
-  <!--   <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-surefire-plugin</artifactId>
-    <version>3.0.0-M5</version>
+<!--  https://mvnrepository.com/artifact/org.hamcrest/hamcrest-library  -->
+<dependency>
+<groupId>org.hamcrest</groupId>
+<artifactId>hamcrest-library</artifactId>
+<version>2.2</version>
+<scope>test</scope>
+</dependency>
+</dependencies>
+<build>
+<plugins>
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-compiler-plugin</artifactId>
+<configuration>
+<source>1.8</source>
+<target>1.8</target>
+<encoding>UTF-8</encoding>
+</configuration>
+</plugin>
+<plugin>
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-surefire-plugin</artifactId>
+<version>3.0.0-M5</version>
 <configuration>
 <suiteXmlFiles>
-<suiteXmlFile>/PollDSLAM/testng.xml</suiteXmlFile>
+<suiteXmlFile>testng.xml</suiteXmlFile>
 </suiteXmlFiles>
 </configuration>
-   </plugin>
-   -->
-   </plugins>
-  
-   </build>
-
+</plugin>
+</plugins>
+</build>
 </project>
