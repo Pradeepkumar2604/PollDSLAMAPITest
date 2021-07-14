@@ -3,11 +3,6 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="restAssuredTests.Test_InitialPageOfPollDslam">
-        <methods>
-          <include name="verifyFrontPage"/>
-        </methods>
-      </class> <!-- restAssuredTests.Test_InitialPageOfPollDslam -->
       <class name="restAssuredTests.Test_LoginHomePage">
         <methods>
           <include name="verifyLoginWithTN"/>

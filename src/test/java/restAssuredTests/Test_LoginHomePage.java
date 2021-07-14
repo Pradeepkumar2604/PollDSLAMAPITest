@@ -23,21 +23,22 @@ public class Test_LoginHomePage {
 		
 		CommonMethods.verifyStatusCode(responseData, 200);
 				
-		if(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.TN").isEmpty())
+		if(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISYS.TN").isEmpty())
 		{
+			//System.out.println("daata "+CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.TN"));
 			assertTrue(true);
 			new CommonMethods().getLogger().info("Valid TN member PollDSLAM initial page is displayed");
 		}
-		else if(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.ERRREC.ERROR_TEXT").isEmpty())	
+		else if(!CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISYS.ERRREC.ERROR_TEXT").isEmpty())	
 		{
 			new CommonMethods().getLogger().info("TN number is invalid!!!!!");
 			new CommonMethods().getLogger().info(responseData.xmlPath().getString(CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.ERRREC.ERROR_TEXT")));
 			assertTrue(false);
 		}
 			
-		Constants.IPAddress=CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.DSLAM_DEVICE_INVENTORY.DSLAM_IP_ADDRESS");
-		Constants.ActualsURL = CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.NI1LIM.DSLAM_ACTUALS_URI");
-		Constants.TransportType = CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISY.TRANSPORT_TYPE");
+		Constants.IPAddress=CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISYS.DSLAM_DEVICE_INVENTORY.DSLAM_IP_ADDRESS");
+		Constants.ActualsURL = CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISYS.NI1LIM.DSLAM_ACTUALS_URI");
+		Constants.TransportType = CommonMethods.fetchxmlStringData(responseData, "POLL_DSLAM_ISYS.TRANSPORT_TYPE");
 		
 	}
 	

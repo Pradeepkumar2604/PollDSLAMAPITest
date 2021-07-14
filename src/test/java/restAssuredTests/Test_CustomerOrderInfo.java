@@ -17,11 +17,11 @@ public class Test_CustomerOrderInfo {
 		
 		Response responseData = CommonMethods.responseCapture(apiURL);
 		//Ordered speed not available		
-				assertTrue(!CommonMethods.stringContentValidation(responseData, "POLL_DSLAM_ISY.CUSTOMER_INFORMATION.ORDER_NO"),"ORDER_NO not exist");
-			    //assertTrue(!CommonMethods.stringContentValidation(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.SUPP_LEVEL"),"SUPP_LEVEL not exist");
-				assertTrue(!CommonMethods.stringContentValidation(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.ISSUED_DATE"),"ISSUED_DATE not exist");
-				assertTrue(!CommonMethods.stringContentValidation(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.DUE_DATE"),"DUE_DATE not exist");
-				assertTrue(!CommonMethods.stringContentValidation(responseData, "POLL_DSLAM_ISY.COMMON_DATA_FEED_INVENTORY.CIRCUIT_ID"),"CIRCUIT_ID not exist");
+				assertTrue(!CommonMethods.stringContentValidation(responseData, "POLL_DSLAM_ISYS.CUSTOMER_INFORMATION.ORDER_NO"),"ORDER_NO not exist");
+			    //assertTrue(!CommonMethods.stringContentValidation(responseData, "POLL_DSLAM_ISYS.COMMON_DATA_FEED_INVENTORY.SUPP_LEVEL"),"SUPP_LEVEL not exist");
+				assertTrue(!CommonMethods.stringContentValidation(responseData, "POLL_DSLAM_ISYS.COMMON_DATA_FEED_INVENTORY.ISSUED_DATE"),"ISSUED_DATE not exist");
+				assertTrue(!CommonMethods.stringContentValidation(responseData, "POLL_DSLAM_ISYS.COMMON_DATA_FEED_INVENTORY.DUE_DATE"),"DUE_DATE not exist");
+				assertTrue(!CommonMethods.stringContentValidation(responseData, "POLL_DSLAM_ISYS.COMMON_DATA_FEED_INVENTORY.CIRCUIT_ID"),"CIRCUIT_ID not exist");
 				
 				new CommonMethods().getLogger().info("CUSTOMER ORDER INFORMATION is displayed");
 	}		

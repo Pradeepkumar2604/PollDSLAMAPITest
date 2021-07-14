@@ -4,12 +4,13 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="restAssuredTests.Test_LoginHomePage"/>
-      <class name="restAssuredTests.Test_Actuals"/>
-      <class name="restAssuredTests.Test_OrderEthernetPathStatus"/>
-      <class name="restAssuredTests.Test_TNCompositionList"/>
+    
       <class name="restAssuredTests.Test_InitialPageOfPollDslam"/>
       <class name="restAssuredTests.Test_CustomerOrderInfo"/>
       <class name="restAssuredTests.Test_PingDSlam"/>
+        <class name="restAssuredTests.Test_Actuals"/>
+      <class name="restAssuredTests.Test_OrderEthernetPathStatus"/>
+      <class name="restAssuredTests.Test_TNCompositionList"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
